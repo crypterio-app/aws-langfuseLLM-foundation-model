@@ -12,6 +12,7 @@ provider "helm" {
   }
 }
 
+###-Resources
 resource "helm_release" "langfuse" {
   name       = "langfuse"
   namespace  = "langfuse"
