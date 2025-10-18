@@ -1,4 +1,4 @@
-![annotation](https://github.com/user-attachments/assets/30898333-fbee-45d2-bcb3-71898b85fc0f)
+<img width="1600" height="900" alt="og" src="https://github.com/user-attachments/assets/49ff6f17-b6d5-4e79-b9df-b5bef74c016d" />
 
 
 ## Generative AI | Langfuse LLM workflows 🚀🚀🚀
