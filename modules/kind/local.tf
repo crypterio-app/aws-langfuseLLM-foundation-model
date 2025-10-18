@@ -65,3 +65,4 @@ resource "null_resource" "export_kubeconfig" {
     command = "echo 'export KUBECONFIG=${kind_cluster.default.kubeconfig_path}' >> ~/.bashrc"
   }
 }
+
