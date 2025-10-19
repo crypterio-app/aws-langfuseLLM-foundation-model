@@ -23,4 +23,21 @@ resource "helm_release" "langfuse" {
   cleanup_on_fail  = true
   timeout          = 900     # 15 min, Airflow may take long to deploy
   depends_on = [kind_cluster.default]
+
+  set {
+    name  = "common.secrets.passwords.failOnNew"
+    value = false
+  }
+
+  # Optional: if you’re using the built-in MinIO
+  set {
+    name  = "s3.auth.rootPassword"
+    value = "changeme123"
+  }
+
+  # Optional: If you want to disable MinIO altogether (use external S3)
+  # set {
+  #   name  = "s3.enabled"
+  #   value = false
+  # }
 }
