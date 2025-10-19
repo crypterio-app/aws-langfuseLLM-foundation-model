@@ -16,14 +16,25 @@ provider "helm" {
 resource "helm_release" "langfuse" {
   name       = "langfuse"
   namespace  = "langfuse"
-  repository = "https://langfuse.github.io/langfuse-k8s"  # official Helm repo
+  repository = "https://langfuse.github.io/langfuse-k8s"
   chart      = "langfuse"
-  #version    = "3.27.6"  # replace with latest stable version
 
-  atomic           = false   # prevents automatic rollback on timeout
-  cleanup_on_fail  = true
-  timeout          = 900     # 15 min, Airflow may take long to deploy
+  atomic          = false
+  cleanup_on_fail = true
+  timeout         = 900
+
   depends_on = [kind_cluster.default]
+
+  values = [<<EOF
+common:
+  secrets:
+    passwords:
+      failOnNew: false
+s3:
+  auth:
+    rootPassword: changeme123
+EOF
+  ]
 }
 
 
